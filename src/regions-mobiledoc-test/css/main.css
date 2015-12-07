@@ -1,0 +1,22 @@
+#frame1 {
+    background: yellow; color: red;
+    max-height: 50px;
+    flow-from: page-content;
+}
+#frame2 {
+    background: yellow; color: red;
+    max-height: 100px;
+    flow-from: page-content;
+}
+#frame3 {
+    background: yellow; color: red;
+    max-height: 50px;
+    flow-from: page-content;
+}
+#frame4 {
+    background: yellow; color: red;
+    max-height: 50px;
+    flow-from: page-content;
+}
+
+#content { flow-into: page-content content; display:none; }
