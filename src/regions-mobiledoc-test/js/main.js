@@ -1,6 +1,16 @@
 $(document).ready(function () {
-    $( "#prependText" ).click(prependText);
-    function prependText() {
-        $("#content").prepend("Fusce pulvinar mi in dolor tempor semper. Etiam consequat cursus neque quis sodales. Mauris et vestibulum nisi.");
+    $( "#editStory" ).click(editStory);
+    $( "#editor-save" ).click(saveStory);
+    $("#story").children("*").clone().appendTo("#content");
+    $("#story").children("*").clone().appendTo("#editor-content");
+
+    function editStory() {
+        $("#editor").show();
+    }
+
+    function saveStory() {
+        $("#editor").hide();
+        var content = $("#editor-content").html();
+        $("#content").html(content);
     }
 });

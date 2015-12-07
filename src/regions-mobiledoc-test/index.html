@@ -4,56 +4,21 @@
         <meta charset="utf-8">
         <title>CSS Polyfill test</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            .textframe {
-                padding: 10px;
-                width: 380px;
-                float: left;
-                /*border: 1px solid red;*/
-                max-height: 450px;
-                min-height: 450px;
-            }
-            .flow-img {
-                float: left;
-            }
-            #paper {
-                width: 800px;
-            }
-            #frame1 {
-                width: 480px;
-                max-height: 310px;
-                min-height: 310px;
-                flow-from: page-content;
-            }
-            #frame2 {
-                width: 270px;
-                max-height: 300px;
-                min-height: 300px;
-                flow-from: page-content;
-            }
-            #frame3 { flow-from: page-content; }
-            #frame4 { flow-from: page-content; }
-            #content {
-                position: absolute;
-                top: 100px;
-                left: 820px;
-                flow-into: page-content content;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" rel="stylesheet" href="css/main.css">
         <script src="vendor/js/css-regions-polyfill.min.js"></script>
     </head>
     <body>
         <h1>Test polyfill</h1>
-
-        <button id="prependText">Add text to story</button>
-        <button id="showContent">Edit story</button>
-        <div id="content">
+        <button id="editStory">Edit story</button>
+        <div id="story">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed pharetra ante. Phasellus sollicitudin lorem vitae odio pulvinar, sit amet gravida dui luctus. Nam placerat eros malesuada, semper elit sed, convallis neque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut viverra volutpat risus, et maximus neque dictum sed. Suspendisse potenti. Nullam pulvinar eleifend neque, sit amet accumsan enim tempor nec. Duis erat risus, iaculis non tempus a, congue sit amet libero. Donec id sem consequat, tristique nulla vitae, ultricies leo. Quisque ac lectus eget magna faucibus blandit. Aliquam nec venenatis libero, quis interdum metus. Donec venenatis blandit neque, et rutrum nunc pharetra sit amet.</p>
             <p>Suspendisse in turpis eget diam vulputate gravida eget ut ex. Nunc ex turpis, accumsan quis imperdiet vitae, imperdiet sed nunc. Pellentesque sit amet ex tempor, semper ligula nec, fringilla justo. Vivamus varius quis nunc vitae condimentum. Proin fermentum et dolor ac consequat. Ut turpis diam, laoreet non justo et, ullamcorper pharetra neque. Praesent semper maximus erat. Vivamus pretium felis aliquam diam auctor vestibulum. Sed pulvinar quis diam vel tincidunt. Aliquam vitae urna eget velit pulvinar blandit ultrices vel est. Praesent volutpat, orci nec tincidunt tempor, erat lacus bibendum sem, sit amet laoreet massa elit non lorem.</p>
             <p>In eleifend, mauris vel rhoncus venenatis, nunc sapien aliquet ipsum, id eleifend nisi diam vitae magna. Sed imperdiet nisl convallis nunc condimentum, at imperdiet arcu volutpat. Suspendisse potenti. In imperdiet, enim quis condimentum aliquet, quam magna fermentum elit, sit amet sagittis mi tellus quis arcu. Nullam nisi lectus, scelerisque nec aliquam et, volutpat sed libero. Vivamus sed consequat leo, sed imperdiet risus. In ultricies convallis mi non vulputate.</p>
             <p>Aliquam iaculis viverra tellus quis iaculis. Nunc tempor non urna sit amet sagittis. Nulla at sem eget ex blandit sagittis nec quis tortor. Integer dapibus mollis diam, id molestie orci euismod eget. Nam lacinia finibus diam, ac feugiat justo maximus quis. Donec in laoreet purus. Cras pretium placerat velit eget condimentum. Pellentesque euismod vehicula orci, ac laoreet tortor posuere ac. Quisque nisl lectus, rhoncus ac enim quis, porta fringilla urna. Suspendisse sagittis tincidunt aliquet. Aenean et tellus porta, finibus mi sed, efficitur justo. Nulla hendrerit ligula ac ipsum pretium, et semper arcu maximus. Etiam quis velit libero. In iaculis ipsum erat, quis convallis lorem condimentum vel. Vestibulum ullamcorper ipsum diam, at vehicula diam auctor quis. In hac habitasse platea dictumst.</p>
             <p>Fusce pulvinar mi in dolor tempor semper. Etiam consequat cursus neque quis sodales. Mauris et vestibulum nisi. Vestibulum feugiat urna eu purus hendrerit vulputate. Morbi sed euismod ipsum. Sed sagittis id augue vel bibendum. Mauris sem ex, varius quis lacus venenatis, tristique tempus diam. Nullam a quam metus. Curabitur at ornare ex. Donec interdum lacinia magna porta aliquet. Maecenas libero leo, hendrerit eget tellus nec, aliquam laoreet dolor.</p>
         </div>
+
+        <div id="content"></div>
 
         <div id="paper">
             <div id="frame1" class="textframe"></div>
@@ -67,6 +32,12 @@
             <div id="frame3" class="textframe"></div>
             <div id="frame4" class="textframe"></div>
         </div>
+
+        <div id="editor">
+            <button id="editor-save">Save</button>
+            <div id="editor-content" contenteditable=""></div>
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
         <script src="js/regions-mobiledoc-test.min.js"></script>

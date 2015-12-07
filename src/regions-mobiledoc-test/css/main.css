@@ -1,22 +1,44 @@
+.textframe {
+    padding: 10px;
+    width: 380px;
+    float: left;
+    max-height: 450px;
+    min-height: 450px;
+}
+.flow-img {
+    float: left;
+}
+#paper {
+    width: 800px;
+}
 #frame1 {
-    background: yellow; color: red;
-    max-height: 50px;
+    width: 480px;
+    max-height: 310px;
+    min-height: 310px;
     flow-from: page-content;
 }
 #frame2 {
-    background: yellow; color: red;
-    max-height: 100px;
+    width: 270px;
+    max-height: 300px;
+    min-height: 300px;
     flow-from: page-content;
 }
-#frame3 {
-    background: yellow; color: red;
-    max-height: 50px;
-    flow-from: page-content;
+#frame3 { flow-from: page-content; }
+#frame4 { flow-from: page-content; }
+#content { flow-into: page-content content; }
+#editor {
+    border: 2px solid black;
+    z-index: 200;
+    padding: 10px;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    right:50px;
+    bottom: 20px;
+    display: none;
+    opacity: 100;
+    background: #eee;
+    overflow: auto;
 }
-#frame4 {
-    background: yellow; color: red;
-    max-height: 50px;
-    flow-from: page-content;
-}
-
-#content { flow-into: page-content content; display:none; }
+#editor.header { background: 999;}
+#story { display: none;}
