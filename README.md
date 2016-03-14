@@ -14,3 +14,10 @@ I recommend using node's `http-server` to host this test/demo.
 Host on localhost:
 
 `http-server dist/`
+
+
+## Notes on windows (problems with node paths)
+
+1. Run `npm install -g grunt-cli`
+2. Type this in your Command prompt: `path=%PATH%;%APPDATA%\npm`
+3. Now you will be able to run `grunt` and `http-server dist/`
